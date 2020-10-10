@@ -13,6 +13,7 @@ const App = () => {
   const addNumber = (number) => {
     showInput(input + number);
     setValString(valString + number);
+
   };
 
   const addOperator = (operator) => {

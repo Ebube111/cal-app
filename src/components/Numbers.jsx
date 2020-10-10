@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/Numbers.css";
 
 function Numbers({ addNumber }) {
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyEvent, false);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyEvent, false);
+    };
+  });
+
+  const handleKeyEvent = (e) => {
+    if (["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].includes(e.key)) {
+      addNumber(e.key);
+    }
+  };
+
   return (
     <div className="numbers__container">
       <button name="1" onClick={addNumber.bind(this, 1)}>
