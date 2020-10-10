@@ -1,43 +1,42 @@
 import React, { useState } from "react";
 import "./App.css";
 import Integer from "./components/Integers";
-import Result from './components/Result'
 
 
 const App = () => {
   const [result, setResult] = useState(0);
 
 
-  const calculate = () => {
-       let checkResult = '';
-       if(result.includes('--')) {
-           checkResult = result.replace('--', "+")
-       } else {
-           checkResult = result
-       }
-       try {
-           setResult({
-               // eslint-disable-next-line
-               result: (eval(checkResult) || "") + ""
-           })
-       }catch (e) {
-           setResult({
-               result: "error"
-           })
-       }
-    }
+//   const calculate = () => {
+//        let checkResult = '';
+//        if(result.includes('--')) {
+//            checkResult = result.replace('--', "+")
+//        } else {
+//            checkResult = result
+//        }
+//        try {
+//            setResult({
+//                // eslint-disable-next-line
+//                result: (eval(checkResult) || "") + ""
+//            })
+//        }catch (e) {
+//            setResult({
+//                result: "error"
+//            })
+//        }
+//     }
 
-  const reset = () => {
-      setResult({
-          result: 0
-      })
-  }
+//   const reset = () => {
+//       setResult({
+//           result: 0
+//       })
+//   }
 
-  const backspace = () => {
-      setResult({
-          result: result.slice(0, -1)
-      })
-  }
+//   const backspace = () => {
+//       setResult({
+//           result: result.slice(0, -1)
+//       })
+//   }
   const onClick = (button) => {
       setResult(parseInt(button))
        
@@ -53,7 +52,7 @@ const App = () => {
           <Integer onClick={onClick}/>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 
