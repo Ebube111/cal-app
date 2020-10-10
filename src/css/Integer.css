@@ -1,11 +1,7 @@
-/* .intege {
-    border-bottom: 2rem;
-} */
 
 .integer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 0.5rem 0.5rem 0.5rem 0.5rem;
-    /* border: 1px solid red */
     font-size: 20px;
 }

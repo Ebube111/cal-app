@@ -1,5 +1,5 @@
 import React from "react";
-import './Integer.css'
+import '../css/Integer.css'
 
 const Integers = (props) => {
 
