@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Screen from "./components/Screen";
+import CalculatorBody from "./containers/CalculatorBody";
 import Integer from "./components/Integers";
 
 
@@ -16,7 +17,7 @@ const App = () => {
         <h1 style={{textAlign: "center"}}>Calculator</h1>
         <div className="cal-container__form">
           <Screen />
-          
+          <CalculatorBody />
           {/* <p>{result}</p>
           <Integer onClick={onClick}/> */}
         </div>
