@@ -1,15 +1,27 @@
 import React from "react";
 import "../css/Operators.css";
 
-function Operators() {
+function Operators({ addOperator, compute, clear }) {
   return (
     <div className="operator__container">
-      <button name="+">+</button>
-      <button name="-">-</button>
-      <button name="/">/</button>
-      <button name="*">*</button>
-      <button name="C">C</button>
-      <button name="=">=</button>
+      <button name="+" onClick={addOperator.bind(this, "+")}>
+        +
+      </button>
+      <button name="-" onClick={addOperator.bind(this, "-")}>
+        -
+      </button>
+      <button name="/" onClick={addOperator.bind(this, "/")}>
+        /
+      </button>
+      <button name="*" onClick={addOperator.bind(this, "*")}>
+        *
+      </button>
+      <button name="C" onClick={clear}>
+        C
+      </button>
+      <button name="=" onClick={compute}>
+        =
+      </button>
     </div>
   );
 }

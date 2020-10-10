@@ -1,9 +1,9 @@
 import React from "react";
 import "../css/Screen.css";
 
-function Screen() {
+function Screen({result}) {
   return <div className="screen__container">
-     Numbers and Results 
+     {result}
   </div>;
 }
 

@@ -3,11 +3,11 @@ import "../css/CalculatorBody.css"
 import Numbers from "../components/Numbers";
 import Operators from "../components/Operators";
 
-function CalculatorBody() {
+function CalculatorBody(props) {
   return (
     <div className="calculator__body">
-      <Numbers />
-      <Operators />
+      <Numbers {...props} />
+      <Operators {...props} />
     </div>
   );
 }
