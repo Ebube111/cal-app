@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/CalculatorBody.css"
 import Numbers from "../components/Numbers";
 import Operators from "../components/Operators";
 
