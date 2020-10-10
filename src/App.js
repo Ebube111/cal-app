@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Integer from "./components/Integers";
+import Result from './components/Result'
 
-function App() {
+
+const App = () => {
+  const [result, setResult] = useState(0);
+
+
+  const calculate = () => {
+       let checkResult = '';
+       if(result.includes('--')) {
+           checkResult = result.replace('--', "+")
+       } else {
+           checkResult = result
+       }
+       try {
+           setResult({
+               // eslint-disable-next-line
+               result: (eval(checkResult) || "") + ""
+           })
+       }catch (e) {
+           setResult({
+               result: "error"
+           })
+       }
+    }
+
+  const reset = () => {
+      setResult({
+          result: 0
+      })
+  }
+
+  const backspace = () => {
+      setResult({
+          result: result.slice(0, -1)
+      })
+  }
+  const onClick = (button) => {
+      setResult(parseInt(button))
+       
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="cal-container">
+        <h1 style={{textAlign: "center"}}>Calculator</h1>
+        <div className="cal-container__form">
+          {/* <Result result={result} /> */}
+          <p>{result}</p>
+          <Integer onClick={onClick}/>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

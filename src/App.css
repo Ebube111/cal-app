@@ -1,8 +1,37 @@
-.App {
-  text-align: center;
+
+.container {
+    background: linear-gradient(120deg, lightblue, white);
+    height: 100vh;
+    width: 100vw;
+    padding-top: 5rem;
 }
 
-.App-logo {
+.cal-container {
+  border-radius: 1rem;
+  background-color: lightslategray;
+  border: 1px solid lightslategrey;
+  align-content: center;
+  max-width: 500px;
+  margin: auto auto auto auto;
+}
+
+.cal-container__form {
+  max-width: 670px;
+  margin: auto;
+  padding: 2rem 2rem 2rem 2rem;
+  background-color: linen;
+
+}
+
+/* .cal-container__result {
+  border: 1px solid lightskyblue;
+  background-color: lightslategrey;
+  justify-items: center;
+  padding-left: 1rem;
+  max-width: 10%;
+} */
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +64,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
