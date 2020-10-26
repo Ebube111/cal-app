@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../css/Numbers.css";
 
-function Numbers({ addNumber }) {
+function Numbers({ addNumber, dot }) {
   useEffect(() => {
     document.addEventListener("keydown", handleKeyEvent, false);
 

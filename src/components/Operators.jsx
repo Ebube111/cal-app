@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../css/Operators.css";
 
-function Operators({ addOperator, compute, clear }) {
+function Operators({ dot, addOperator, compute, clear, backspace }) {
   useEffect(() => {
     document.addEventListener("keydown", handleKeyEvent, false);
 
@@ -37,11 +37,17 @@ function Operators({ addOperator, compute, clear }) {
       <button name="*" onClick={addOperator.bind(this, "*")}>
         *
       </button>
+      <button name="." onClick={dot.bind(this, ".")}>
+        .
+      </button>
       <button name="C" onClick={clear}>
         C
       </button>
       <button name="=" onClick={compute}>
         =
+      </button>
+      <button name="<" onClick={backspace}>
+        Back
       </button>
     </div>
   );
