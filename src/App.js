@@ -13,8 +13,8 @@ const App = () => {
   const addNumber = (number) => {
     showInput(input + number);
     setValString(valString + number);
-
   };
+
 
   const addOperator = (operator) => {
     if (valString !== "") {
@@ -22,19 +22,19 @@ const App = () => {
         let newTotalValue = 0;
         switch (pendingOperation) {
           case "+":
-            newTotalValue = pendingValue + parseInt(valString);
+            newTotalValue = pendingValue + parseFloat(valString);
             setTotal(newTotalValue);
             break;
           case "-":
-            newTotalValue = pendingValue - parseInt(valString);
+            newTotalValue = pendingValue - parseFloat(valString);
             setTotal(newTotalValue);
             break;
           case "/":
-            newTotalValue = pendingValue / parseInt(valString);
+            newTotalValue = pendingValue / parseFloat(valString);
             setTotal(newTotalValue);
             break;
           case "*":
-            newTotalValue = pendingValue * parseInt(valString);
+            newTotalValue = pendingValue * parseFloat(valString);
             setTotal(newTotalValue);
             break;
 
@@ -49,48 +49,77 @@ const App = () => {
 
 
       } else {
-        setPendingValue(parseInt(valString));
+        setPendingValue(parseFloat(valString));
         setPendingOperation(operator);
-        setTotal(parseInt(valString));
+        setTotal(parseFloat(valString));
         setValString("");
         showInput(input + operator);
       }
     }
   };
 
+  const clearLastCharacter  = ()=>{
+    let lastCharacter = input.charAt(input.length-1)
+    if (["*", "/", "-", "+"].includes(lastCharacter)) {
+      setPendingOperation("");
+      setPendingValue(pendingValue)
+      setValString(pendingValue.toString())
+    }else{
+      setValString(valString.slice(0,valString.length-1))
+      console.log(valString.slice(0,valString.length-1));
+      setPendingValue(pendingValue)
+
+    }
+    showInput(input.slice(0,input.length-1));
+  }
+
   const clear = () => {
     showInput("");
     setPendingOperation("");
     setPendingValue(0);
     setValString("");
+    setTotal(0)
   };
 
   const compute = () => {
     if (pendingOperation !== "" && valString !== "") {
       switch (pendingOperation) {
         case "+":
-          totalOperation(total + parseInt(valString));
+          totalOperation(total + parseFloat(valString));
+          setTotal(total + parseFloat(valString))
           break;
 
         case "-":
-          totalOperation(total - parseInt(valString));
+          totalOperation(total - parseFloat(valString));
+          setTotal(total - parseFloat(valString))
           break;
 
         case "/":
-          totalOperation(total / parseInt(valString));
+          totalOperation(total / parseFloat(valString));
+          setTotal(total /parseFloat(valString))
           break;
 
         case "*":
-          totalOperation(total * parseInt(valString));
+          totalOperation(total * parseFloat(valString));
+          setTotal(total * parseFloat(valString))
           break;
 
         default:
           break;
       }
     } else {
-      showInput(total.toString());
+      
+      if(total !== 0){
+        totalOperation(total);
+        setTotal(total)
+      }else{
+        totalOperation(parseFloat(valString));
+      }
+      
     }
   };
+
+  console.log(valString);
 
   function totalOperation(totalValue) {
     setPendingOperation("");
@@ -110,6 +139,7 @@ const App = () => {
             addOperator={addOperator}
             clear={clear}
             compute={compute}
+            clearLastCharacter = {clearLastCharacter}
           />
         </div>
       </div>
