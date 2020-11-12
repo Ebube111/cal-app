@@ -9,6 +9,7 @@ const App = () => {
   const [pendingOperation, setPendingOperation] = useState("");
   const [valString, setValString] = useState("");
   const [total, setTotal] = useState(0);
+  
 
   const addNumber = (number) => {
     showInput(input + number);
@@ -80,6 +81,11 @@ const App = () => {
     setValString("");
     setTotal(0)
   };
+
+  const backspace = () => {
+    let value = input.slice(0, -1)
+    showInput(value)
+  }
 
   const compute = () => {
     if (pendingOperation !== "" && valString !== "") {
