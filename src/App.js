@@ -82,10 +82,6 @@ const App = () => {
     setTotal(0)
   };
 
-  const backspace = () => {
-    let value = input.slice(0, -1)
-    showInput(value)
-  }
 
   const compute = () => {
     if (pendingOperation !== "" && valString !== "") {
